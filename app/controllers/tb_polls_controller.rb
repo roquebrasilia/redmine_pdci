@@ -68,6 +68,15 @@ class TbPollsController < ApplicationController
     end
   end
 
+  def vote_poll_path
+    poll = TbPoll.find(params[:id])
+    poll.vote(params[:answer])
+    if poll.save
+      flash[:notice] = 'Vote saved. TbPoll'
+    end
+    redirect_to :action => 'index'
+  end
+  
   private
   def find_tb_poll
     @tb_poll = TbPoll.find(params[:id])

@@ -1,0 +1,13 @@
+<% if @tb_poll.valid? %>
+  hideModal();
+  if ($(".tb_polls.list").length) {
+    $(".nodata").hide();
+    $(".tb_polls").show();
+    $("<%= j render(@tb_poll, formats: [:html]) %>").prependTo(".tb_polls tbody").effect("highlight");
+  } else {
+    window.location.href = "<%= url_for @tb_poll %>";
+  }
+<% else %>
+  $("#errorExplanation").remove();
+  $("<%= j error_messages_for("tb_poll") %>").prependTo("#new_tb_poll");
+<% end %>

@@ -1,0 +1,23 @@
+<div class="contextual">
+  <%= link_to l(:label_tb_poll_edit), edit_tb_poll_path(@tb_poll), class: "icon icon-edit", remote: true %>
+</div>
+
+<h2><%= link_to l(:label_tb_poll_plural), tb_polls_path %>
+  &#187; <%= l(:label_tb_poll) %></h2>
+
+<div class="box">
+<p>
+  <b>Question:</b>
+  <%= @tb_poll.question %>
+</p>
+<p>
+  <b>Yes:</b>
+  <%= @tb_poll.yes %>
+</p>
+<p>
+  <b>No:</b>
+  <%= @tb_poll.no %>
+</p>
+</div>
+
+<% html_title l(:label_tb_poll) -%>

@@ -1,3 +1,13 @@
 # English strings go here for Rails i18n
 en:
+  field_no: "No"
+  field_yes: "Yes"
+  field_question: "Question"
+  label_tb_poll_destroyed: "Tb poll was successfully deleted."
+  label_tb_poll_updated: "Tb poll was successfully updated."
+  label_tb_poll_created: "Tb poll was successfully created."
+  label_tb_poll_edit: "Edit Tb poll"
+  label_tb_poll_new: "New Tb poll"
+  label_tb_poll_plural: "Tb_polls"
+  label_tb_poll: "Tb poll"
   # my_label: "My label"

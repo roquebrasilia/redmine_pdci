@@ -1,0 +1,31 @@
+<div class="contextual">
+  <%= link_to l(:label_tb_poll_new), new_tb_poll_path, class: "icon icon-add", remote: true %>
+</div>
+
+<h2><%= l(:label_tb_poll_plural) %></h2>
+
+<% if @tb_polls.empty? %>
+  <p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>
+
+<div class="autoscroll">
+  <table class="list tb_polls" style="<%= "display: none;" if @tb_polls.empty? %>">
+    <thead>
+      <tr>
+        <%= sort_header_tag "question", caption: l(:field_question) %>
+        <%= sort_header_tag "yes", caption: l(:field_yes) %>
+        <%= sort_header_tag "no", caption: l(:field_no) %>
+        <%= sort_header_tag "created_at", caption: l(:field_created_on), default_order: "desc" %>
+        <%= sort_header_tag "updated_at", caption: l(:field_updated_on), default_order: "desc" %>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @tb_polls %>
+    </tbody>
+  </table>
+</div>
+
+<p class="pagination"><%= pagination_links_full @tb_poll_pages %></p>
+
+<% html_title l(:label_tb_poll_plural) -%>

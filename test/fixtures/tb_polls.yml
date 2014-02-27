@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  question: MyString
+  'yes': 1
+  'no': 1
+
+two:
+  question: MyString
+  'yes': 1
+  'no': 1

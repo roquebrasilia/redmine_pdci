@@ -1,0 +1,12 @@
+<tr id="<%= dom_id tb_poll %>" class="<%= cycle "odd", "even" %>">
+  <td><%= tb_poll.question %></td>
+  <td><%= tb_poll.yes %></td>
+  <td><%= tb_poll.no %></td>
+  <td><%= authoring tb_poll.created_at, tb_poll.author %>.</td>
+  <td><%= l(:label_updated_time, time_tag(tb_poll.updated_at)).html_safe %>.</td>
+  <td class="buttons">
+    <%= link_to l(:button_show), tb_poll, remote: true %>
+    <%= link_to l(:button_edit), edit_tb_poll_path(tb_poll), class: "icon icon-edit", remote: true %>
+    <%= link_to l(:button_delete), tb_poll, method: :delete, data: { confirm: l(:text_are_you_sure) }, class: "icon icon-del", remote: true %>
+  </td>
+</tr>

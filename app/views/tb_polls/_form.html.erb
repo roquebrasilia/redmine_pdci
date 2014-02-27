@@ -1,0 +1,13 @@
+<%= labelled_form_for(@tb_poll) do |f| %>
+  <%= error_messages_for "tb_poll" %>
+
+  <div class="box tabular">
+    <p><%= f.text_field :question %></p>
+    <p><%= f.number_field :yes %></p>
+    <p><%= f.number_field :no %></p>
+  </div>
+
+  <p class="buttons">
+    <%= f.submit %>
+  </p>
+<% end %>

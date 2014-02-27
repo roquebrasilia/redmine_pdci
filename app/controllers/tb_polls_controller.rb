@@ -2,10 +2,10 @@ class TbPollsController < ApplicationController
   unloadable
   
   respond_to :html, :json
-  respond_to :js, only: [:show, :new, :create, :edit, :update, :destroy]
+  respond_to :js, only: [:show, :new, :create, :edit, :update, :destroy, :vote]
 
   before_filter :find_project_by_project_id
-  before_filter :find_tb_poll, only: [:show, :edit, :update, :destroy]
+  before_filter :find_tb_poll, only: [:show, :edit, :update, :destroy, :vote]
   before_filter :authorize
 
   include SortHelper
@@ -57,6 +57,15 @@ class TbPollsController < ApplicationController
   # Override url/path convenience methods options to include project
   def url_options
     super.reverse_merge project_id: @project
+  end
+
+  
+  def vote
+  @tb_poll.vote params[:answer]
+  flash[:notice] = "Voted #{params[:answer]}" if @tb_poll.save && !request.xhr?
+    respond_with(@tb_poll) do |format|
+      format.js { render action: :show }
+    end
   end
 
   private

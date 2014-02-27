@@ -19,5 +19,12 @@
   <%= @tb_poll.no %>
 </p>
 </div>
+<div class="box">
+	<p>
+	  <b>Vote:</b>
+	  <%= link_to "Yes", vote_poll_path(@tb_poll, answer: "yes"), method: :post %> |
+	  <%= link_to "No", vote_poll_path(@tb_poll, answer: "no"), method: :post %>
+	</p>
+</div>
 
 <% html_title l(:label_tb_poll) -%>

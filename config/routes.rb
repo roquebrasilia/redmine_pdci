@@ -3,7 +3,8 @@
 RedmineApp::Application.routes.draw do
 
   scope "/projects/:project_id" do
-    resources :tb_polls
+    resources :tb_polls do 
+      post "vote", on: :member
+    end
   end
-
 end

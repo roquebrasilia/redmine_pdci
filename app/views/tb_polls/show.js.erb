@@ -1,6 +1,12 @@
 <% html = capture do %>
   <h3 class="title"><%= l(:label_tb_poll) %></h3>
-
+<div>
+	<p>
+  <b>Vote:</b>
+  <%= link_to "Yes", vote_poll_path(@poll, answer: "yes"), method: :post, remote: true %> |
+  <%= link_to "No", vote_poll_path(@poll, answer: "no"), method: :post, remote: true %>
+</p>
+</div>
   <div class="box">
     <p>
       <b>Question:</b>

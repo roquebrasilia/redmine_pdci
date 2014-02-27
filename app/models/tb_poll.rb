@@ -6,5 +6,9 @@ class TbPoll < ActiveRecord::Base
   attr_accessible :no, :question, :yes
 
   validates :project, :author, presence: true
-
+  
+  def vote(answer)
+    increment(answer == "yes" ? :yes : :no)
+  end
+  
 end

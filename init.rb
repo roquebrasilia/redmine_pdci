@@ -6,6 +6,9 @@ Redmine::Plugin.register :redmine_pdci do
   project_module :tb_polls do
     permission :view_tb_polls, tb_polls: [:index, :show]
     permission :manage_tb_polls, tb_polls: [:new, :create, :edit, :update, :destroy]
+    # adicionado a action para permissao
+    permission :vote_polls, polls: [:vote]
+    
   end
   name "Redmine Pdci"
   author "GitLab"
